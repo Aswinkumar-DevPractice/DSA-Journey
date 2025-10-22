@@ -69,7 +69,7 @@ Once calculated, it shows:
 You’ll need Node.js, Angular CLI, and npm installed.
 
 1. Clone the Repo
-git clone https://github.com/your-username/chennai-route-optimizer.git
+git clone https://github.com/Aswinkumar-DevPractice/DSA-Journey.git
 cd chennai-route-optimizer
 
 2. Install Dependencies
