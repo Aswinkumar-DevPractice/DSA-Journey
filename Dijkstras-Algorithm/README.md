@@ -70,7 +70,7 @@ You’ll need Node.js, Angular CLI, and npm installed.
 
 1. Clone the Repo
 git clone https://github.com/Aswinkumar-DevPractice/DSA-Journey.git
-cd chennai-route-optimizer
+cd Dijkstras-Algorithm
 
 2. Install Dependencies
 npm install
