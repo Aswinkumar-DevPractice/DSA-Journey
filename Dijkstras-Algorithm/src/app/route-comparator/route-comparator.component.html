@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="card">
+    <!-- Header -->
+    <h1>Chennai Route Optimizer</h1>
+    <p class="subtitle">Find the best route from <strong>Tambaram</strong> to <strong>Anna Nagar</strong> based on your priority.</p>
+
+    <!-- Optimization Selector -->
+    <div class="selector">
+      <label for="optFactor">Optimize by:</label>
+      <select id="optFactor" (change)="onOptimizationChange($event)">
+        <option value="time">Time (Minimizing Duration)</option>
+        <option value="cost">Cost (Minimizing Price)</option>
+        <option value="distance">Distance (Minimizing Kilometers)</option>
+        <option value="combined">Time + Cost (Best of combined)</option>
+      </select>
+    </div>
+
+    <!-- Result Display -->
+    <div class="result" *ngIf="bestRoute && bestRoute.total">
+  <h2>Best Route: Optimized by {{ optimizationFactor }}</h2>
+
+  <div class="stats">
+    <p><strong>Path:</strong> {{ bestRoute.path.join(' → ') }}</p>
+
+    <div class="stats-grid">
+      <div class="stat time">
+        <p>Total Time</p>
+        <h3>{{ bestRoute.total.time }} min</h3>
+      </div>
+      <div class="stat cost">
+        <p>Total Cost</p>
+        <h3>₹{{ bestRoute.total.cost }}</h3>
+      </div>
+      <div class="stat distance">
+        <p>Total Distance</p>
+        <h3>{{ bestRoute.total.distance }} km</h3>
+      </div>
+    </div>
+
+    <div class="modes">
+      <p><strong>Modes Used:</strong></p>
+      <div class="mode-tags">
+        <span *ngFor="let mode of bestRoute.modes" class="tag">{{ mode }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Graph Visualization -->
+    <div class="network">
+      <h3>Route Network Map (Nodes)</h3>
+      <p>All available stops/interchanges in the current network:</p>
+      <div class="nodes">
+        <span *ngFor="let node of ['Tambaram','Anna Nagar','St. Thomas Mount','Anna Nagar East','Chennai Egmore','Airport Metro Station','Alandur']" class="node">{{ node }}</span>
+      </div>
+    </div>
+  </div>
+</div>
