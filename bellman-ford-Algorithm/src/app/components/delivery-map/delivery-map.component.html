@@ -1,0 +1,36 @@
+<h2>🚚 Smart Package Delivery Route Finder</h2>
+
+<div class="controls">
+  <label><input type="radio" name="mode" value="time"
+         [checked]="optimizationMode ==='time'"
+         (change)="onOptimizationChange('time')" /> Minimize Time</label>
+
+  <label><input type="radio" name="mode" value="cost"
+         [checked]="optimizationMode ==='cost'"
+         (change)="onOptimizationChange('cost')" /> Minimize Cost</label>
+
+  <label><input type="radio" name="mode" value="combo"
+         [checked]="optimizationMode ==='combo'"
+         (change)="onOptimizationChange('combo')" /> Balanced (Combo)</label>
+</div>
+
+<div id="map" style="height: 500px; margin-top: 10px;"></div>
+
+<div *ngIf="route" style="margin-top: 20px;">
+  <h3>🗺️ Optimal Path:</h3>
+  <p><strong>{{ route.join(' → ') }}</strong></p>
+
+  <h3>Total Weighted Cost ({{ optimizationMode }}):</h3>
+  <p><strong>{{ result.totalCost['Customer D'] | number:'1.0-2' }}</strong></p>
+
+  <table border="1" cellpadding="6">
+    <tr><th>From</th><th>To</th><th>Mode</th><th>Time (min)</th><th>Cost ($)</th></tr>
+    <tr *ngFor="let edge of pathEdges">
+      <td>{{ edge.from }}</td>
+      <td>{{ edge.to }}</td>
+      <td>{{ edge.mode }}</td>
+      <td>{{ edge.time }}</td>
+      <td>{{ edge.cost }}</td>
+    </tr>
+  </table>
+</div>

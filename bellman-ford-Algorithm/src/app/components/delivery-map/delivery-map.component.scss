@@ -1,0 +1,19 @@
+.controls {
+  margin-bottom: 10px;
+  background: #f9f9f9;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.controls label {
+  font-weight: 500;
+  cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
